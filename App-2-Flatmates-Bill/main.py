@@ -1,3 +1,5 @@
+import webbrowser
+
 from fpdf import FPDF
 
 
@@ -50,21 +52,25 @@ class PdfReport:
 
         # Insert title
         pdf.set_font(family="Times", size=24, style="B")
-        pdf.cell(w=0, h=80, txt="Flatmates Bill", border=1, align="C", ln=1)
+        pdf.cell(w=0, h=80, txt="Flatmates Bill", border=0, align="C", ln=1)
 
         # Insert Period label and value
-        pdf.cell(w=100, h=40, txt="Period: ", border=1)
-        pdf.cell(w=150, h=40, txt=bill.period, border=1, ln=1)
+        pdf.set_font(family="Times", size=14, style="B")
+        pdf.cell(w=100, h=40, txt="Period: ", border=0)
+        pdf.cell(w=150, h=40, txt=bill.period, border=0, ln=1)
 
         # Insert name and due amount of the first flatmate
-        pdf.cell(w=100, h=40, txt=flatmate_1.name, border=1)
-        pdf.cell(w=150, h=40, txt=flatmate_1_pay, border=1, ln=1)
+        pdf.set_font(family="Times")
+        pdf.cell(w=100, h=25, txt=flatmate_1.name, border=0)
+        pdf.cell(w=150, h=25, txt=flatmate_1_pay, border=0, ln=1)
 
         # Insert name and due amount of the second flatmate
-        pdf.cell(w=100, h=40, txt=flatmate_2.name, border=1)
-        pdf.cell(w=150, h=40, txt=flatmate_2_pay, border=1, ln=1)
+        pdf.cell(w=100, h=25, txt=flatmate_2.name, border=0)
+        pdf.cell(w=150, h=25, txt=flatmate_2_pay, border=0, ln=1)
 
         pdf.output(self.filename)
+
+        webbrowser.open(self.filename)
 
 
 the_bill = Bill(820, "March 2021")
