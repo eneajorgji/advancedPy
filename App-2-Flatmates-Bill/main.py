@@ -39,8 +39,14 @@ class PdfReport:
         self.filename = filename
 
     def generate(self, flatmate_1, flatmate_2, bill):
+        flatmate_1_pay = str(round(flatmate_1.pays(bill, flatmate_2), 2))
+        flatmate_2_pay = str(round(flatmate_2.pays(bill, flatmate_1), 2))
+
         pdf = FPDF(orientation="p", unit="pt", format="A4")
         pdf.add_page()
+
+        # Add icon
+        pdf.image("files/house.png", w=35, h=35)
 
         # Insert title
         pdf.set_font(family="Times", size=24, style="B")
@@ -52,7 +58,11 @@ class PdfReport:
 
         # Insert name and due amount of the first flatmate
         pdf.cell(w=100, h=40, txt=flatmate_1.name, border=1)
-        pdf.cell(w=150, h=40, txt=str(flatmate_1.pays(bill, flatmate_2)), border=1, ln=1)
+        pdf.cell(w=150, h=40, txt=flatmate_1_pay, border=1, ln=1)
+
+        # Insert name and due amount of the second flatmate
+        pdf.cell(w=100, h=40, txt=flatmate_2.name, border=1)
+        pdf.cell(w=150, h=40, txt=flatmate_2_pay, border=1, ln=1)
 
         pdf.output(self.filename)
 
