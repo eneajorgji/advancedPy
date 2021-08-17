@@ -1,0 +1,24 @@
+Title: Math Paintin
+Description: An app that let the user to provide the start coordinate of geomtrical shapes, such as: squares
+and rectengle, their dimesions, and their colors, and the program produces an image file canvas with the geometrical
+shapes drawn in it.
+
+Objects:
+        Square:
+            x
+            y
+            side
+            color
+            draw(canvas)
+        Rectangle:
+            x
+            y
+            width
+            height
+            color
+            draw(canvas)
+        Canvas:
+            width
+            height
+            color
+            make(imagepath)
