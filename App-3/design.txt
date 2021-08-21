@@ -1,4 +1,4 @@
-Title: Math Paintin
+Title: Math Painting
 Description: An app that let the user to provide the start coordinate of geomtrical shapes, such as: squares
 and rectengle, their dimesions, and their colors, and the program produces an image file canvas with the geometrical
 shapes drawn in it.
