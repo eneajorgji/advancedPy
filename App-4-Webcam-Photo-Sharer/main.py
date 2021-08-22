@@ -7,21 +7,18 @@ from filesharer import FileSharer
 Builder.load_file("frontend.kv")
 
 
-class CameraScree():
+class CameraScreen(Screen):
     def start(self):
-        pass
+        self.ids.camera.play = True
 
     def stop(self):
-        pass
+        self.ids.camera.play = False
 
     def capture(self):
         pass
 
 
-class
-
-
-class ImageScreen():
+class ImageScreen(Screen):
     pass
 
 
