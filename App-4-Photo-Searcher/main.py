@@ -2,12 +2,12 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
-Builder.load_file('frontend.kv')
+Builder.load_file("frontend.kv")
 
 
 class FirstScreen(Screen):
     def search_image(self):
-        pass
+        self.manager.current_screen.ids.img.source = "files/sunny.jpg"
 
 
 class RootWidget(ScreenManager):
