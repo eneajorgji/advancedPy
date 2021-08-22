@@ -20,12 +20,15 @@
             id: img
         Button:
             text: "Create sharable link"
+            on_press: root.create_link()
         Label:
+            id: link
             text: ""
         GridLayout:
             cols: 2
             Button:
                 text: "Copy link"
+                on_press: root.copy_link()
             Button:
                 text: "Open link"
 
